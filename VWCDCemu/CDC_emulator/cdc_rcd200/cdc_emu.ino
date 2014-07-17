@@ -1,7 +1,7 @@
-// works also with ATMEGA8 - tested
-// SPI PINS used for transfer from CDCemulator to RADIO:
-// MOSI (arduino pin 11) -> DataIN
-// CLK (arduino pin 13) -> CLK
+/**
+ * Currently working for RCD200 with the CHECK bug. Workaround: start and stop the HU while in CDC mode and AUX will start play automatically
+ * Check out the repository README to see how you can connect the wires to arduino -> HU
+ */
 
 #include <SPI.h>
 //#include <SoftwareSerial.h>
@@ -103,7 +103,7 @@ void setup(){
 
 void loop(){
 
-  send_package(0xCB,0xb1,0x01,0x01,0x50,0x08,0x30,0xc3);
+  send_package(0xCB,0xB1,0x01,0x01,0x50,0x00,0x30,0xC3);
   delay(8);
 
 }
